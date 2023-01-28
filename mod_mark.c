@@ -18,9 +18,9 @@ static int translate_handle(request_rec * req) {
 		return DECLINED;
 	}
 
-	char mark_hex[10];
-	sprintf(mark_hex, "%08X", mark);
-	apr_table_set(req->subprocess_env, "SOCKET_MARK", mark_hex);
+	char mark_dec[12];
+	sprintf(mark_dec, "%d", mark);
+	apr_table_set(req->subprocess_env, "SOCKET_MARK", mark_dec);
 
 	return DECLINED;
 }
